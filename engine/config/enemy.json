@@ -1,0 +1,22 @@
+[
+  {
+    "type": "grunt",
+    "name": "小兵",
+    "icon": "enemy_grunt",
+    "hp": 40,
+    "speed": 1.2,
+    "leak_damage": 1,
+    "gold_reward": 8,
+    "armor": 0
+  },
+  {
+    "type": "runner",
+    "name": "快跑者",
+    "icon": "enemy_runner",
+    "hp": 22,
+    "speed": 2.4,
+    "leak_damage": 1,
+    "gold_reward": 10,
+    "armor": 0
+  }
+]
