@@ -1,0 +1,3 @@
+# 最小握手脚本：用于 tests/test_stdio_replay.py 与人工排查
+{"type":"HELLO"}
+{"type":"exit"}

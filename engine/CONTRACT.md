@@ -10,8 +10,13 @@
 
 | 角色 | 负责 | 只读/不碰 |
 |---|---|---|
-| **L1 战斗线** | `core/grid.py`、`core/path.py`、`core/entities/*`、`core/combat.py` | 主循环、波次、金币生命胜负、配置加载、JSON 组织 |
-| **L2 驱动线** | `main.py`、`core/loop.py`、`core/world.py`、`core/waves.py`、`core/config.py`、`protocol/*`、`tools/*` | 索敌算法、伤害公式、路径推进数学 |
+| **L1 战斗线（机制）** | `core/grid.py`、`core/path.py`、`core/entities/*`、`core/combat.py`、`tests/test_path.py`、`tests/test_combat.py` | 主循环、波次、金币生命胜负、配置加载、JSON 组织、**`config/*.json` 的数值** |
+| **L2 驱动线（驱动 + 数据）** | `main.py`、`core/loop.py`、`core/world.py`、`core/waves.py`、`core/config.py`、`protocol/*`、`tools/*`、`tests/test_waves.py`、**`config/*.json`（数值唯一写者）** | 索敌算法、伤害公式、路径推进数学 |
+
+两条硬规则：
+
+1. **`config/*.json` 的数值与关卡设计只由 L2 写**。L1 只读；需要调数值时在群里给「塔名 / 字段 / 建议值 / 理由」，由 L2 改并跑一次 headless 回归后回报结果。L1 可本地临时改副本做测试，**不许提交**。
+2. **`core/world.py` 只由 L2 增字段**。L1 需要新字段（如减速状态、冷却计时）时提给 L2，不自己改，避免两边同时动同一个容器。
 
 阶段验收：`python -m engine.main --headless --level 1` 跑完 3 波，打印 `WIN` / `LOSE` 与金币、剩余生命。
 

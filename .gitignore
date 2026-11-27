@@ -4,3 +4,6 @@ __pycache__/
 venv/
 *.log
 .pytest_cache/
+*.zip
+out.txt
+err.txt

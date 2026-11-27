@@ -1,0 +1,6 @@
+[project]
+name = "tafang-engine"
+version = "0.1.0"
+description = "Qt 塔防大作业的 Python 引擎层（仅标准库）"
+requires-python = ">=3.10"
+dependencies = []
