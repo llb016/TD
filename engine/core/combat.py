@@ -2,8 +2,9 @@
 
 三件必须遵守的事：
 1. 距离用格、时间用秒，射程判定 dist <= range。
-2. 击杀与漏怪只 append 事件到 world.events，金币/血量入账由 L2 完成（D7）。
-3. 只返回本次 tick 产生的事件，不直接输出 JSON。
+2. resolve 只做伤害与 alive 标记：击杀/漏怪的**事件与金币、扣血由 loop 统一处理**
+   （loop._move_enemies 发 leak，loop._cleanup 发 kill 并加金币），这里再发一次就是重复入账。
+3. 只返回本次 tick 额外产生的事件（通常为空列表），不直接输出 JSON。
 """
 
 from __future__ import annotations
